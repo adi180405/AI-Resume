@@ -27,13 +27,14 @@ if 'chat_history' not in st.session_state:
     st.session_state.chat_history = ChatMessageHistory()
 
 # Load API keys
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
+#os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+#os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
+#groq_api_key = os.getenv("GROQ_API_KEY")
 
-groq_api_key = os.getenv("GROQ_API_KEY")
+api_key=st.sidebar.text_input(label="Groq API key",type="password")
 
 # Initialize LLM and embeddings
-llm = ChatGroq(groq_api_key=groq_api_key, model="openai/gpt-oss-120b")
+llm = ChatGroq(groq_api_key=api_key, model="openai/gpt-oss-120b")
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # Text-to-Speech function using pyttsx3 (cross-platform)
