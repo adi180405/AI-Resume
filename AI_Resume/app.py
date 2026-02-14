@@ -4,6 +4,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_classic.chains.retrieval import create_retrieval_chain
@@ -83,7 +84,7 @@ with st.sidebar:
                 chunk_overlap=200
             )
             splits = text_splitter.split_documents(documents)
-            st.session_state.vectorstore = Chroma.from_documents(
+            st.session_state.vectorstore = FAISS.from_documents(
                 documents=splits, 
                 embedding=embeddings
             )
