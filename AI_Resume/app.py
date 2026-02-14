@@ -32,7 +32,9 @@ if 'chat_history' not in st.session_state:
 
 #groq_api_key = os.getenv("GROQ_API_KEY")
 api_key=st.sidebar.text_input(label="Groq API key",type="password")
-
+if not api_key:
+    st.warning("⚠️ Please enter your Groq API Key in the sidebar to continue")
+    st.stop()
 # Initialize LLM and embeddings
 llm = ChatGroq(groq_api_key=api_key, model="openai/gpt-oss-120b")
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
