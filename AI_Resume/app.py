@@ -34,7 +34,8 @@ if 'chat_history' not in st.session_state:
 api_key=st.sidebar.text_input(label="Groq API key",type="password")
 
 # Initialize LLM and embeddings
-llm = ChatGroq(groq_api_key=api_key, model_name="openai/gpt-oss-120b")
+llm = ChatGroq(api_key=api_key, model_name="llama-3.3-70b-versatile")
+#llm = ChatGroq(groq_api_key=api_key, model_name="openai/gpt-oss-120b")
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # Text-to-Speech function using pyttsx3 (cross-platform)
