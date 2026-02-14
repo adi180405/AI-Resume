@@ -17,3 +17,4 @@ faiss-cpu
 chromadb
 streamlit
 langchain_groq
+pyttsx3
