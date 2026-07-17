@@ -54,7 +54,7 @@ def speak_text(text):
         return False
 
 # Streamlit UI
-st.title("🎓 AI Resume Builder: PDF Chat with Voice")
+st.title("🎓 RAG Application")
 st.write("Upload PDFs, search content, and chat with AI assistance - now with voice output!")
 
 # Sidebar for PDF upload and settings
